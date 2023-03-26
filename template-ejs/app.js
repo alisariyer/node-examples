@@ -21,6 +21,8 @@ app.use('/cats', catsRouter);
 app.get('/r/:subreddit', (req, res) => {
     const { subreddit } = req.params;
     const data = redditData[subreddit];
+    // Or we can render notfound named another page by sending unfound parameter with a meaningful message
+    // like res.render('notfound', { subreddit });
     if (!data) res.redirect('/404');
     res.render('subreddit', { ...data })
 })
