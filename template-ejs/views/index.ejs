@@ -7,6 +7,15 @@
     <title>Starting Page</title>
 </head>
 <body>
-    <h1>Hello World</h1>
+    <h1>Welcome to our app</h1>
+    <p>Your random number is <%= rand %></p>
+
+    <h2>Your number is <%= rand % 2 == 0 ? 'even' : 'odd' %></h2>
+
+    <% if (rand > 4) { %>
+        <p>The number is greater than five</p>
+    <% } else { %>
+        <p>The number is less than five</p>
+    <% } %>
 </body>
 </html>
