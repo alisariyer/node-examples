@@ -9,11 +9,13 @@ app.set('view engine', 'ejs');
 
 // Define router
 const indexRouter = require('./routes/index');
+const catsRouter = require('./routes/cats');
 
 // Use routing modules
 app.use('/', indexRouter);
+app.use('/cats', catsRouter);
 
-
+// Fallback routing
 app.get('*', (req, res) => {
     res.send('404!!!!');
 })
