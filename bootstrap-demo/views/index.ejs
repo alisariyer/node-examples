@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starting Page</title>
+    <link rel="stylesheet" href="./css/app.css">
+</head>
+<body>
+    <h1>Welcome to our app</h1>
+    <p>Your random number is <%= rand %></p>
+
+    <h2>Your number is <%= rand % 2 == 0 ? 'even' : 'odd' %></h2>
+
+    <% if (rand > 4) { %>
+        <p>The number is greater than five</p>
+    <% } else { %>
+        <p>The number is less than five</p>
+    <% } %>
+</body>
+</html>
