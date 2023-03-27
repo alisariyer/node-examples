@@ -15,24 +15,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Define router
 const indexRouter = require('./routes/index');
-const catsRouter = require('./routes/cats');
+const randRouter = require('./routes/rand');
 
 // Use routing modules
 app.use('/', indexRouter);
-app.use('/cats', catsRouter);
+app.use('/rand', randRouter);
 
 // Subreddit examples
 app.get('/r/:subreddit', (req, res) => {
     const { subreddit } = req.params;
     const data = redditData[subreddit];
-    // Or we can render notfound named another page by sending unfound parameter with a meaningful message
-    // like res.render('notfound', { subreddit });
-    if (!data) res.redirect('/404');
+    if (!data) res.render('notfound', { subreddit });
     res.render('subreddit', { ...data })
-})
-
-app.get('/404', (req, res) => {
-    res.status(404).send('404!!!!');
 })
 
 // Fallback routing

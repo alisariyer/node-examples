@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.render('index');
-})
+    const rand = Math.floor(Math.random() * 10);
+    res.render('rand.ejs', { rand });
+});
 
 module.exports = router;
