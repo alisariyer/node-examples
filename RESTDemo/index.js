@@ -10,30 +10,37 @@ app.set('views', path.join(__dirname, 'views'));
 
 const comments = [
     {
+        id: 1,
         username: 'Felix',
         comment: 'Hey, this is so funny!'
     },
     {
+        id: 2,
         username: 'Adam',
         comment: 'Cute cat, white and black harmony!'
     },
     {
+        id: 3,
         username: 'Selim',
         comment: 'Your app is very effective.'
     },
     {
+        id: 4,
         username: 'Canan',
         comment: 'Can you make more than that, more complicated?'
     },
     {
+        id: 5,
         username: 'Danny',
         comment: 'I am just sleeping, please do not interrupt me!'
     },
     {
+        id: 6,
         username: 'Said',
         comment: 'Read more and get lightener'
     },
     {
+        id: 7,
         username: 'Will',
         comment: 'No time, no money. Man what\'s up?'
     }
@@ -53,8 +60,15 @@ app.get('/comments/new', (req, res) => {
 app.post('/comments', (req, res) => {
     const { username, comment } = req.body;
     comments.push({ username, comment });
-    res.send('it worked');
+    res.redirect('/comments');
 })
+
+// Show REST pattern: show a unique comment
+app.get('/comments/:id', (req, res) => {
+    const { id } = req.params;
+    const comment = comments.find(c => c.id === parseInt(id));
+    res.render('comments/show', { comment });
+});
 
 app.get('/tacos', (req, res) => {
     res.send("GET /tacos response");
