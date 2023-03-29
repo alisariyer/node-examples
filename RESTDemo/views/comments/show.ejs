@@ -8,8 +8,13 @@
 </head>
 <body>
     <h1>Comment</h1>
+    <p>ID: <%= comment.id %></p>
     <p><%= comment.comment %></p>
     <p><%= comment.username %></p>
+    <a href="/comments/<%= comment.id %>/edit">Edit page</a>
     <a href="/comments">Home page</a>
+    <form action="/comments/<%= comment.id %>?_method=DELETE" method="POST">
+        <button>Delete</button>
+    </form>
 </body>
 </html>
