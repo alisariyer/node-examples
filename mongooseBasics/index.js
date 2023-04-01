@@ -19,6 +19,14 @@ const movieSchema = new Schema({
 
 const Movie = model('Movie', movieSchema);
 
-const avatar = new Movie({ title: 'Avatar', year: 2022, score: 7.8, rating: "R" })
+// const avatar = new Movie({ title: 'Avatar', year: 2022, score: 7.8, rating: "R" })
 
-console.log(avatar);
+// Movie.insertMany([
+//     { title: "Mission Impossible 10", year: 2025, score: 9.0, rating: "R"},
+//     { title: "Superman returns", year: 2024, score: 7.0, rating: "R"},
+//     { title: "The king was there", year: 2024, score: 6.3, rating: "R"},
+//     { title: "Scare of the night", year: 2022, score: 7.1, rating: "R"},
+// ])
+// .then(data => {
+//     console.log('Worked: ', data);
+// })
