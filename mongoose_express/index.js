@@ -19,8 +19,10 @@ app.get('/', (req, res) => {
     res.send('Homepage');
 })
 
-app.get('/dog', (req, res) => {
-    res.send('Sisst');
+app.get('/products', async (req, res) => {
+    const products = await Product.find({});
+    console.log(products);
+    res.render('products/index', { products });
 })
 
 app.listen(3000, () => {
